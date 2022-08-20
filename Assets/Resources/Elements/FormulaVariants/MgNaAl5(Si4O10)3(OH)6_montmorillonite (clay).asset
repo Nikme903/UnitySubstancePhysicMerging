@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e3949d943351e48977b3748180dff8, type: 3}
+  m_Name: "MgNaAl5(Si4O10)3(OH)6_montmorillonite\_(clay)"
+  m_EditorClassIdentifier: 
+  casId: 1318-93-0
+  chemicalVariant:
+    molecularFormula: "MgNaAl\u2085(Si\u2084O\u2081\u2080)\u2083(OH)\u2086"
+    chemicalEnName: "montmorillonite\_(clay)"
+    chemicalRuName: "\u043C\u043E\u043D\u0442\u043C\u043E\u0440\u0438\u043B\u043B\u043E\u043D\u0438\u0442
+      (\u0433\u043B\u0438\u043D\u0430)\r"
+    density: 0
+    phase: 0

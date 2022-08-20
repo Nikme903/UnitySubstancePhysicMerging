@@ -1,0 +1,15 @@
+{
+  "name": "plllc.com.liquidvolumepro",
+  "displayName": "LiquidVolumePro",
+  "version": "1.8.1",
+  "unity": "2019.4",
+  "keywords": [
+    "Liquid Volume Pro"
+  ],
+  "description": "",
+  "dependencies": {
+
+  },
+  "author": "ProgramLab",
+  "license": "UNLICENSED"
+}

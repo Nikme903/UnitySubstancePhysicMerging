@@ -1,0 +1,6 @@
+I found a temporary fix - although emscripten arguments aren't exposed in Project Settings, they can be modified in your project's ProjectSettings.asset file. In this file, if your "webGLEmscriptenArgs" field is empty, emscripten is not using clamp mode, which can result in the aforementioned error.
+
+Modifying the field to the following worked for me in solving the issue:
+webGLEmscriptenArgs: -s "BINARYEN_TRAP_MODE='clamp'"
+
+I hope this helps expedite the fix. More info here: https://emscripten.org/docs/compiling/WebAssembly.html#trapping.
