@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ReactionMediator
 {
-    public static List<ChemicalReaction> chemicalReactions;
+    private static List<ChemicalReaction> chemicalReactions;
 
     public static void FindReactionAndTryMix(ContainerTransitive containerTransitive)
     {
@@ -31,8 +31,8 @@ public static class ReactionMediator
         {
             ChemicalReaction cr = new ChemicalReaction()
             {
-                reactionId = chemicalReactionsSO[i].reactionId,
-                previousReactions = chemicalReactionsSO[i].previousReactions,
+                reactionId = chemicalReactionsSO[i].GetInstanceID().ToString(),
+                previousReactionId = CheckIDPrevious(chemicalReactionsSO[i]),
                 inputSet = chemicalReactionsSO[i].inputSet,
                 outputSet = chemicalReactionsSO[i].outputSet,
                 inputMistake = chemicalReactionsSO[i].inputMistake,
@@ -45,6 +45,11 @@ public static class ReactionMediator
         }
     }
 
+    private static string CheckIDPrevious(ChemicalReactionSO chemicalReactionSO)
+    {
+        return (chemicalReactionSO.previousReaction != null) ? chemicalReactionSO.previousReaction.GetInstanceID().ToString() : null;
+    }
+
     private static bool IsEntriesCountEquals(Entry[] selectEntries, MixSet inputSet)
     {
         return selectEntries.Length == inputSet.moleculars.Length;
@@ -52,6 +57,7 @@ public static class ReactionMediator
 
     private static bool IsChemicalIDIEquals(Entry[] selectEntries, MolecularWrapperSO[] inputEntries)
     {
+        //Id нужно сравнивать только убедившись, что количество элементов в обоих массивах одинаково
         int rightId = 0;
         for (int i = 0; i < selectEntries.Length; i++)
         {
@@ -88,7 +94,10 @@ public static class ReactionMediator
                 bool isProportionsEquals = IsProportionsEqualsFor(containerTransitive, chemicalReactions[r]);
                 if (!isProportionsEquals) { Debug.Log("Ошибочные пропорции смешивания"); }
 
-                if (isChemicalIDIEquals && isProportionsEquals)
+                bool isPreviousReactionsCompleted = IsPreviousIDsReactionCompleted(containerTransitive, chemicalReactions[r]);
+                if (!isPreviousReactionsCompleted) { Debug.Log("Предыдущие операциия не завершены."); }
+
+                if (isChemicalIDIEquals && isProportionsEquals && isPreviousReactionsCompleted)
                 {
                     Debug.Log("MixComponent");
                     MixController.MixComponent(containerTransitive, chemicalReactions[r]);
@@ -100,12 +109,14 @@ public static class ReactionMediator
 
     private static void TwoReactionChecksWay(ContainerTransitive containerTransitive)
     {
+        Entry[] selectEntries = containerTransitive.entries.ToArray();
         for (int r = 0; r < chemicalReactions.Count; r++)
         {
             MixSet inputSet = chemicalReactions[r].inputSet;
             Debug.Log($"Queue_Reaction {r}");
             //проверка только нового добавлямого
-            bool isChemicalIDIEquals = IsChemicalIDIEquals(containerTransitive.entries.ToArray(), inputSet.moleculars);
+            //проверка входного набора с сохраненными в списке на сцене
+            bool isChemicalIDIEquals = IsChemicalIDIEquals(selectEntries, inputSet.moleculars);
             if (!isChemicalIDIEquals) { Debug.Log("ID's элементов не совпадает"); }
 
             if (isChemicalIDIEquals)
@@ -113,13 +124,14 @@ public static class ReactionMediator
                 bool isProportionsEquals = IsProportionsEqualsFor(containerTransitive, chemicalReactions[r]);
                 if (!isProportionsEquals) { Debug.Log("Ошибочные пропорции смешивания"); }
 
-                bool isImageNotExist = IsReactionImageNotExist(containerTransitive, chemicalReactions[r]);
-                if (!isImageNotExist) { Debug.Log("Индекс уже был учтен"); }
+                //
+                bool isImageExisted = IsReactionWasCompleted(containerTransitive, chemicalReactions[r]);
+                if (isImageExisted) { Debug.Log("Индекс уже был учтен"); }
 
                 bool isPreviousReactionsCompleted = IsPreviousIDsReactionCompleted(containerTransitive, chemicalReactions[r]);
                 if (!isPreviousReactionsCompleted) { Debug.Log("Предыдущие операциия не завершены."); }
 
-                if (isProportionsEquals && isPreviousReactionsCompleted && isImageNotExist)
+                if (isProportionsEquals && isPreviousReactionsCompleted && !isImageExisted)
                 {
                     Debug.Log("MixComponentQueue");
                     MixController.MixComponent(containerTransitive, chemicalReactions[r]);
@@ -129,29 +141,37 @@ public static class ReactionMediator
         }
     }
 
-    private static bool IsReactionImageNotExist(ContainerTransitive containerTransitive, ChemicalReaction chemicalReaction)
+    private static bool IsReactionWasCompleted(ContainerTransitive containerTransitive, ChemicalReaction chemicalReaction)
     {
         MixImage savedImageExist = containerTransitive.imagesQueue.Find((x) => { return x.reactionId == chemicalReaction.reactionId; });
-        return (savedImageExist == null);        //если попали в уже выполненную не нужно еще раз её выполнять!
+        return (savedImageExist != null);        //если попали в уже выполненную не нужно еще раз её выполнять!
     }
 
     private static bool IsPreviousIDsReactionCompleted(ContainerTransitive containerTransitive, ChemicalReaction chemicalReaction)
     {
-        MixImage[] completedQueue = new MixImage[0];
         if (containerTransitive.imagesQueue.Count > 0)
         {
-            completedQueue = containerTransitive.imagesQueue.ToArray();
-        }
-        int complete = 0;
-
-        for (int i = 0; i < chemicalReaction.previousReactions.Length; i++)
-        {
-            if (string.Equals(completedQueue[i].reactionId, chemicalReaction.previousReactions[i].reactionId))
+            MixImage[] saved = new MixImage[0];
+            saved = containerTransitive.imagesQueue.ToArray();
+            if (saved.Length > 0)
             {
-                complete++;
+                for (int i = 0; i < saved.Length; i++)
+                {
+                    return string.Equals(saved[i].reactionId, chemicalReaction.previousReactionId);
+                }
+                return false;
             }
         }
-        return complete == chemicalReaction.previousReactions.Length;
+        else
+        {
+            if (string.IsNullOrEmpty(chemicalReaction.previousReactionId))
+            {
+               //в контейнере ничего не мешалось ранее и у данной реакции не предыдущих указанных
+                return true;
+            }
+        }
+        Debug.LogError($"необычная ситуация");
+        return false;
     }
 
     private static bool IsProportionsEqualsFor(ContainerTransitive containerTransitive, ChemicalReaction react)
@@ -210,7 +230,7 @@ public static class ReactionMediator
         }
 
         int portionsSuccess = 0;
-        for (int i = 0; i < inputMixSet.volumePortions.Length; i++)
+        for (int i = 0; i < portionLength; i++)
         {
             float port = verified.Values.ElementAt(i);
             if ((port >= lowerEdge[i]) && (port <= upperEdge[i]))

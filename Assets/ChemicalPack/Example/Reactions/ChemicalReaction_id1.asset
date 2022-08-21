@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcad6243ea233c439a4359af7e53962, type: 3}
   m_Name: ChemicalReaction_id1
   m_EditorClassIdentifier: 
-  reactionId: 1
-  previousReactions: []
+  previousReaction: {fileID: 0}
   inputSet:
     moleculars:
     - {fileID: 11400000, guid: bbf7009ba8b2bfb409ffec37f783f918, type: 2}

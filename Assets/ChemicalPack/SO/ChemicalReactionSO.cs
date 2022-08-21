@@ -23,6 +23,7 @@ public enum ReactionEffects
 public class MixSet
 {
     public MolecularWrapperSO[] moleculars;
+    [Header("Выходные/входные части указанных веществ")]
     public float[] volumePortions;
 
     //public MixSet(MolecularWrapper[] moleculars, float[] volumePortion)
@@ -35,11 +36,16 @@ public class MixSet
 [CreateAssetMenu(fileName = "ChemicalReaction", menuName = "Chemical/ChemicalReaction", order = 1)]
 public class ChemicalReactionSO: ScriptableObject
 {
-    public string reactionId; //только если требуется учитывать цепочные реакции, имею в виду предыщущие реакции смешивания в том же контейнере
+    //public string reactionId; //только если требуется учитывать цепочные реакции, имею в виду предыщущие реакции смешивания в том же контейнере
+    [Header("Предыдущая завершенная реакция")]
+    public ChemicalReactionSO previousReaction;
 
-    public ChemicalReactionSO[] previousReactions;
+    [Header("Требуемые вещества")]
     public MixSet inputSet;
+    [Header("+- % от требуемой части")]
     public float inputMistake;
+
+    [Header("Получаемые вещества")]
     public MixSet outputSet;
 
     public PhaseState outputPhase;
@@ -50,7 +56,8 @@ public class ChemicalReactionSO: ScriptableObject
 public class ChemicalReaction  
 {
     public string reactionId; //только если требуется учитывать цепочные реакции, имею в виду предыщущие реакции смешивания в том же контейнере
-    public ChemicalReactionSO[] previousReactions;
+    //public ChemicalReactionSO[] previousReactions;
+    public string previousReactionId;
     public MixSet inputSet;
     public float inputMistake;
     public MixSet outputSet;

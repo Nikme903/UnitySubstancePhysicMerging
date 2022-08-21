@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SubstanceRenderer : MonoBehaviour
 {
-    private BaseContainer baseContainer;
+  /*  private BaseContainer baseContainer;
 
     public float scaleY;
     public float filled;
@@ -18,6 +18,6 @@ public class SubstanceRenderer : MonoBehaviour
     private void BaseContainer_OnBaseVolumeChanged(float filled)
     {
         this.filled = filled;
-    }
+    }*/
 
 }

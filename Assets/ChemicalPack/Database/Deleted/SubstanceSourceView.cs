@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SubstanceSourceView : MonoBehaviour
 {
-    public List<MolecularWrapperSO> molecularUpload;
+ /*   public List<MolecularWrapperSO> molecularUpload;
    
     private void Start()
     {
@@ -21,5 +21,5 @@ public class SubstanceSourceView : MonoBehaviour
     public void SendVolume()
     {
 
-    }
+    }*/
 }
