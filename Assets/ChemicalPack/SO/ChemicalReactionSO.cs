@@ -48,7 +48,7 @@ public class ChemicalReactionSO: ScriptableObject
     [Header("Получаемые вещества")]
     public MixSet outputSet;
 
-    public PhaseState outputPhase;
+    //public PhaseState outputPhase;
     public ReactionModifier reactionModifier;
     public ReactionEffects reactionEffect;
 }
@@ -62,7 +62,7 @@ public class ChemicalReaction
     public float inputMistake;
     public MixSet outputSet;
 
-    public PhaseState outputPhase;
+    //public PhaseState outputPhase;
     public ReactionModifier reactionModifier;
     public ReactionEffects reactionEffect;
 }

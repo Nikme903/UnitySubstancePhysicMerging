@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhysicModel2.Math;
+using System;
 
 [Serializable]
 public class ChemicalVariant

@@ -1,28 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-public enum PhaseState
-{
-    Unknokwn,
-    Liquid,
-    Solid,
-    Gas,
-    Artificial
-}
 
-public enum MolecularPhase
-{
-    None,
-    Concentrate,
-    Dissolved
-}
+//public enum MolecularPhase
+//{
+//    None,
+//    Concentrate,
+//    Dissolved
+//}
 
 public class MolecularWrapperSO : ScriptableObject //агрегатор по сути формула
 {
     public CASFormulaSO formula;
     public float moleculeCount;
     public Color molecularColor;
-    public MolecularPhase molecularPhase;
+    public float molecularConcentration;
 }
 
 [Serializable]
@@ -31,7 +23,7 @@ public class MolecularWrapper
     public CASFormula formula;
     public float molecularCount;
     public Color molecularColor;
-    public MolecularPhase molecularPhase;
+    public float molecularPhase;
 
     public MolecularWrapper(CASFormula formula)
     {

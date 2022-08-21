@@ -36,7 +36,7 @@ public static class ReactionMediator
                 inputSet = chemicalReactionsSO[i].inputSet,
                 outputSet = chemicalReactionsSO[i].outputSet,
                 inputMistake = chemicalReactionsSO[i].inputMistake,
-                outputPhase = chemicalReactionsSO[i].outputPhase,
+                //outputPhase = chemicalReactionsSO[i].outputPhase,
 
                 reactionEffect = chemicalReactionsSO[i].reactionEffect,
                 reactionModifier = chemicalReactionsSO[i].reactionModifier,

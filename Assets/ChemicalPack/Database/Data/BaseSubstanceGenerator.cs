@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using PhysicModel2.Math;
+using UnityEditor;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -76,7 +77,7 @@ public class BaseSubstanceGenerator : MonoBehaviour
         {
             return PhaseState.Artificial;
         }
-        return PhaseState.Unknokwn;
+        return PhaseState.Undefined;
     }
 
     [ContextMenu("run2")]

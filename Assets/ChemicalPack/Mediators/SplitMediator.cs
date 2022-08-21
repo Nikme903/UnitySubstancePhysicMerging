@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PhysicModel2.Math;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class SplitMediator
@@ -12,7 +13,7 @@ public static class SplitMediator
     public static void SourceOutOperation(ContainerTransitive to, ContainerSource from, float demandedValue) //demanded -volume/mass
     {
         ChemicalVariant addedChem = from.entries[0].molecule.formula.chemicalVariant;
-        if (addedChem.phase == PhaseState.Unknokwn)
+        if (addedChem.phase == PhaseState.Undefined)
         {
             Debug.LogWarning($"Фаза делимого вещества 'ChemicalVariant' не обозначена");
         }
@@ -121,7 +122,7 @@ public static class SplitMediator
             {
                 Debug.LogWarning($"[ml]Цвет вещества {formula} не задан");
             }
-            if (mw.formula.chemicalVariant.phase == PhaseState.Unknokwn)
+            if (mw.formula.chemicalVariant.phase == PhaseState.Undefined)
             {
                 Debug.LogWarning($"[ch]Фаза вещества {formula} не задана");
             }
