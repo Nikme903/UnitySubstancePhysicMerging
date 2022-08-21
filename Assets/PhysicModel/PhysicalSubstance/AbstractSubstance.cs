@@ -6,6 +6,7 @@ namespace PhysicModel.PhysicalSubstance
     public class AbstractSubstance  //абстрактное вещество
     {
         public string substanceName { get; set; }
+        public CASFormula formula;
         public PhaseGroup phaseCollector;
         public SubstanceAgregateParameters substanceParameters;
         public Phase phase;

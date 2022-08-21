@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-
 //public enum MolecularPhase
 //{
 //    None,
@@ -12,17 +11,28 @@ using UnityEngine;
 public class MolecularWrapperSO : ScriptableObject //агрегатор по сути формула
 {
     public CASFormulaSO formula;
-    public float moleculeCount;
+    //public float moleculeCount;
+
+    [Header("Массовая концетрация %масс")]
+    public bool useMassFraction;
+    public float massFraction;      //отношение массы данного компонента к сумме масс всех компонентов
+
+    [Header("Объемная концетрация %об ")]
+    public bool useVolumeFraction;
+    public float volumeFraction;    //отношение объёма компонента к сумме объёмов компонентов до смешивания
+
+    [Header("Цвет данного образца")]
     public Color molecularColor;
-    public float molecularConcentration;
 }
 
 [Serializable]
 public class MolecularWrapper
 {
     public CASFormula formula;
-    public float molecularCount;
+
+    //public float molecularCount;
     public Color molecularColor;
+
     public float molecularPhase;
 
     public MolecularWrapper(CASFormula formula)

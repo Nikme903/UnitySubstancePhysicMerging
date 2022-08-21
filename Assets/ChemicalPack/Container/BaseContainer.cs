@@ -10,7 +10,7 @@ public class BaseContainer : MonoBehaviour
 
     //[HideInInspector]
     public float filledVolume;
-
+    [SerializeField]
     private List<Entry> m_entries;
 
     public List<Entry> entries { get => m_entries; set { m_entries = value;  } }
@@ -38,5 +38,10 @@ public class BaseContainer : MonoBehaviour
             sum += entries[i].entryVolume;
         }
         return sum;
+    }
+
+    protected void UpdateFilledValue()
+    {
+        filledVolume = SummVolume(entries);
     }
 }

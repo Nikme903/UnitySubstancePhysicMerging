@@ -29,6 +29,9 @@ public class ContainerSource : BaseContainer
         else
         {
             entry.entryVolume -= volumeCubicCm;
+            UpdateFilledValue();
+            if (renderer != null) { renderer.Create(); }
         }
+    
     }
 }
