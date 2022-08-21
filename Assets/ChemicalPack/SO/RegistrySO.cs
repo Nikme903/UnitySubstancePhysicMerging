@@ -1,33 +1,33 @@
 ﻿using System;
 using UnityEngine;
 
-public class CASFormulaSO : ScriptableObject
+public class RegistrySO : ScriptableObject
 {
     public string casId;
     public ChemicalVariant chemicalVariant;
 }
 
 [Serializable]
-public class CASFormula
+public class Registy
 {
     public string casId;
     public ChemicalVariant chemicalVariant;
 
-    public CASFormula(MolecularWrapperSO so)
+    public Registy(MolecularViewSO so)
     {
         this.casId = so.formula.casId;
         this.chemicalVariant = ChemicalVariant.Copy(so.formula.chemicalVariant);
     }
 
-    public CASFormula(string casId, ChemicalVariant chemicalVariant)
+    public Registy(string casId, ChemicalVariant chemicalVariant)
     {
         this.casId = casId;
         this.chemicalVariant = ChemicalVariant.Copy(chemicalVariant);
     }
 
-    public static CASFormula Copy(CASFormula cas)
+    public static Registy Copy(Registy cas)
     {
-        CASFormula cs = new CASFormula(cas.casId, cas.chemicalVariant);
+        Registy cs = new Registy(cas.casId, cas.chemicalVariant);
         return cs;
     }
 }

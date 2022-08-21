@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ReactionsCollection : MonoBehaviour
 {
-    public List<ChemicalReactionSO> reactionSOs;
+    public List<ChemicalReactionSO> reactions;
 
     private void Start()
     {
-        ReactionMediator.InitReactionCollection(reactionSOs);
+        ReactionMediator.InitReactionCollection(reactions);
     }
 }

@@ -39,7 +39,7 @@ public class ContainerTransitive : BaseContainer
         filledVolume = GetFilledVolumeWithLast();
     }
 
-    public void AddEntry(MolecularWrapper molecula, float volumeCubicCm)
+    public void AddEntry(MolecularView molecula, float volumeCubicCm)
     {
         Entry e = IsEntryExist(molecula);
         if (e != null)
@@ -61,7 +61,7 @@ public class ContainerTransitive : BaseContainer
          }*/
     }
 
-    public void RemoveEntry(MolecularWrapper molecula)
+    public void RemoveEntry(MolecularView molecula)
     {
         Entry e = IsEntryExist(molecula);
         if (e != null)
@@ -95,7 +95,7 @@ public class ContainerTransitive : BaseContainer
         return sum;
     }
 
-    private Entry IsEntryExist(MolecularWrapper molecula)
+    private Entry IsEntryExist(MolecularView molecula)
     {
         Entry e = null;
         if (entries != null)
@@ -105,7 +105,7 @@ public class ContainerTransitive : BaseContainer
         return e;
     }
 
-    private void PlusVolumeOfTheEntry(MolecularWrapper molecula, float volumeCubicCm)
+    private void PlusVolumeOfTheEntry(MolecularView molecula, float volumeCubicCm)
     {
         Entry e = IsEntryExist(molecula);
         if (e != null)

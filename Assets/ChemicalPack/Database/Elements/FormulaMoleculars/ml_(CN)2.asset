@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_(CN)2
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: 4663694b897165349928bddf98191848, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0, g: 0, b: 0, a: 0}
-  molecularPhase: 0
+  color: {r: 0, g: 0, b: 0, a: 0}

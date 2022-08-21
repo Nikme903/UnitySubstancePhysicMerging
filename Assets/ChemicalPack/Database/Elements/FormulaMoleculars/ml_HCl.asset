@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_HCl
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: beade389f5ff4ca4191172b20291309d, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0, g: 0, b: 0, a: 0}
-  molecularPhase: 0
+  color: {r: 1, g: 1, b: 1, a: 0.4117647}

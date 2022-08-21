@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_H2O
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: 4538195860d29ac478303d817d9ff4e6, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0.42626378, g: 0.89175797, b: 0.9716981, a: 0.5529412}
-  molecularPhase: 2
+  color: {r: 0, g: 0.7809465, b: 1, a: 1}

@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_H2SO4
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: 4382d450f36ad2b47b7f869e8ade180b, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0.754717, g: 0.0747597, b: 0.6032742, a: 0.49803922}
-  molecularPhase: 0
+  color: {r: 0.519619, g: 0, b: 1, a: 0.9411765}

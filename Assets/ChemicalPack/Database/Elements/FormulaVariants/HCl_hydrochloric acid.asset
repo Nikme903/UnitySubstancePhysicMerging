@@ -17,5 +17,5 @@ MonoBehaviour:
     molecularFormula: HCl
     chemicalEnName: hydrochloric acid
     chemicalRuName: "\u0441\u043E\u043B\u044F\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430\r"
-    density: 0
+    density: 0.997
     phase: 0

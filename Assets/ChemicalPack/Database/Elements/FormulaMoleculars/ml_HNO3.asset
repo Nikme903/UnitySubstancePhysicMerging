@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_HNO3
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: c3ccb73d8df7b8b41ae9685101133d59, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0.26048818, g: 0.9622642, b: 0.20425421, a: 0.4745098}
-  molecularPhase: 0
+  color: {r: 0.11792451, g: 1, b: 0.15630211, a: 0.7019608}

@@ -117,7 +117,7 @@ public static class SplitMediator
         for (int i = 0; i < container.entries.Count; i++)
         {
             string formula = container.entries[i].molecule.formula.chemicalVariant.molecularFormula;
-            MolecularWrapper mw = container.entries[i].molecule;
+            MolecularView mw = container.entries[i].molecule;
             if (mw.molecularColor.a == 0)
             {
                 Debug.LogWarning($"[ml]Цвет вещества {formula} не задан");

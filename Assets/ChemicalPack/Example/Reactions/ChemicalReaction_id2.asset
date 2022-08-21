@@ -15,15 +15,19 @@ MonoBehaviour:
   previousReaction: {fileID: 11400000, guid: 6bcd51e648bd9034f85e79238055ff4b, type: 2}
   inputSet:
     moleculars:
-    - {fileID: 11400000, guid: 5d973f15a8fbbc14bbd8eb2e49adb410, type: 2}
+    - {fileID: 11400000, guid: 97f85332f14f46b4e856ac3148981159, type: 2}
     volumePortions:
     - 0.06
+    nameMixSet: 
   inputMistake: 0.9
   outputSet:
     moleculars:
     - {fileID: 11400000, guid: 69c34f282a4ab4a4797e56e241d7737d, type: 2}
     volumePortions:
     - 1
-  outputPhase: 0
+    nameMixSet: 
+  outSubstanceViews:
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    effect: 0
   reactionModifier: 0
-  reactionEffect: 0
+  containerEffect: 0

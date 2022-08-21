@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_Ba solid
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: e60ec6835c835b34db55dd103d9746cc, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0.9056604, g: 0.20308286, b: 0, a: 1}
-  molecularPhase: 1
+  color: {r: 1, g: 0.9614235, b: 0, a: 0.7529412}

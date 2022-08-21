@@ -2,7 +2,7 @@
 
 public class ContainerSource : BaseContainer
 {
-    public MolecularWrapperSO sourceMolecular;
+    public MolecularViewSO sourceMolecular;
     public bool isInfinite = true;
     private SourceLayerLiquidRenderer renderer => GetComponent<SourceLayerLiquidRenderer>();
 
@@ -17,7 +17,7 @@ public class ContainerSource : BaseContainer
     {
     }
 
-    private void ContainerSourceInit(MolecularWrapperSO so)
+    private void ContainerSourceInit(MolecularViewSO so)
     {
         entries.Add(new Entry(so, filledVolume));
     }

@@ -14,7 +14,7 @@ public static class MixController
         List<Entry> outputEntry = new List<Entry>();
         for (int i = 0; i < findedReaction.outputSet.moleculars.Length; i++)
         {
-            MolecularWrapperSO so = findedReaction.outputSet.moleculars[i];
+            MolecularViewSO so = findedReaction.outputSet.moleculars[i];
 
             float part = findedReaction.outputSet.volumePortions[i] * currentVolume;
 

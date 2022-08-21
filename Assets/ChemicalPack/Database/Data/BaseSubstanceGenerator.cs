@@ -5,8 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class BaseSubstanceGenerator : MonoBehaviour
 {
-    private MolecularWrapperSO molecular;
-    private CASFormulaSO element;
+    private MolecularViewSO molecular;
+    private RegistrySO element;
 
     [ContextMenu("run")]
     public void Run()
@@ -17,7 +17,7 @@ public class BaseSubstanceGenerator : MonoBehaviour
         for (int i = 0; i < 118; i++)
         {
 
-            element = ScriptableObject.CreateInstance<CASFormulaSO>();
+            element = ScriptableObject.CreateInstance<RegistrySO>();
             element.casId = tr.dataSimple[i].casId;
             //element.chemicalVariant = new ChemicalVariant(
             //    technicalReader.technicalData[i].clearFormula,
@@ -37,7 +37,7 @@ public class BaseSubstanceGenerator : MonoBehaviour
             string trimmedPhase = tr.dataSimple[i].phase.Trim();
             string mname = $"ml_{tr.dataSimple[i].rawFormula} {trimmedPhase}.asset";
             string mFullpath = mpath + mname;
-            molecular = ScriptableObject.CreateInstance<MolecularWrapperSO>();
+            molecular = ScriptableObject.CreateInstance<MolecularViewSO>();
             molecular.formula = element;
             AssetDatabase.CreateAsset(molecular, mFullpath);
             EditorUtility.SetDirty(molecular);
@@ -83,13 +83,13 @@ public class BaseSubstanceGenerator : MonoBehaviour
     [ContextMenu("run2")]
     public void Run2()
     {
-        CASFormulaSO element;
+        RegistrySO element;
         string path = "Assets/Resources/Elements/FormulaVariants/";
         CSVReader tr = new CSVReader();
 
         for (int i = 0; i < tr.dataFormula.Count; i++)
         {
-            element = ScriptableObject.CreateInstance<CASFormulaSO>();
+            element = ScriptableObject.CreateInstance<RegistrySO>();
             element.casId = tr.dataFormula[i].casId;
             element.chemicalVariant = new ChemicalVariant(
                 tr.dataFormula[i].clearFormula,
@@ -100,7 +100,7 @@ public class BaseSubstanceGenerator : MonoBehaviour
             string mpath = "Assets/Resources/Elements/FormulaMoleculars/";
             string mname = $"ml_{tr.dataFormula[i].rawFormula}.asset";
             string mFullpath = mpath + mname;
-            molecular = ScriptableObject.CreateInstance<MolecularWrapperSO>();
+            molecular = ScriptableObject.CreateInstance<MolecularViewSO>();
             molecular.formula = element;
             AssetDatabase.CreateAsset(molecular, mFullpath);
             EditorUtility.SetDirty(molecular);

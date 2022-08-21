@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ml_Ca solid
   m_EditorClassIdentifier: 
   formula: {fileID: 11400000, guid: ccebe48761a3bd24d8d2e6e0810dc4fd, type: 2}
-  moleculeCount: 0
-  molecularColor: {r: 0, g: 0, b: 0, a: 0}
-  molecularPhase: 0
+  color: {r: 1, g: 1, b: 1, a: 1}

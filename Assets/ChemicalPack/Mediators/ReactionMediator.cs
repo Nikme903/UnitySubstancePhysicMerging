@@ -38,7 +38,7 @@ public static class ReactionMediator
                 inputMistake = chemicalReactionsSO[i].inputMistake,
                 //outputPhase = chemicalReactionsSO[i].outputPhase,
 
-                reactionEffect = chemicalReactionsSO[i].reactionEffect,
+                containerEffect = chemicalReactionsSO[i].containerEffect,
                 reactionModifier = chemicalReactionsSO[i].reactionModifier,
             };
             chemicalReactions.Add(cr);
@@ -55,7 +55,7 @@ public static class ReactionMediator
         return selectEntries.Length == inputSet.moleculars.Length;
     }
 
-    private static bool IsChemicalIDIEquals(Entry[] selectEntries, MolecularWrapperSO[] inputEntries)
+    private static bool IsChemicalIDIEquals(Entry[] selectEntries, MolecularViewSO[] inputEntries)
     {
         //Id нужно сравнивать только убедившись, что количество элементов в обоих массивах одинаково
         int rightId = 0;
