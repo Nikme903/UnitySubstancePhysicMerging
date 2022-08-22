@@ -4,11 +4,11 @@ using UnityEngine;
 public class ContainerTransitive : BaseContainer
 {
     public List<MixImage> imagesQueue;
-    public float lastMixedVolume;
+
     public bool isMixedStatus;
 
     public List<Entry> lastMixedEntries
-    { get { return (imagesQueue.Count > 0) ? imagesQueue[imagesQueue.Count - 1].mixedEntries : null; } }
+    { get { return (imagesQueue.Count > 0) ? imagesQueue[imagesQueue.Count - 1].MixedEntries : null; } }
 
     private void Start()
     {
@@ -130,9 +130,9 @@ public class ContainerTransitive : BaseContainer
     private static void ImageInfo(MixImage image)
     {
         string s = $"Created next_image:\n";
-        for (int i = 0; i < image.mixedEntries.Count; i++)
+        for (int i = 0; i < image.MixedEntries.Count; i++)
         {
-            s += $"\tgenerated id={image.mixedEntries[i].molecularView.formula.casId} volume={image.mixedEntries[i].entryVolume}\n";
+            s += $"\tgenerated id={image.MixedEntries[i].molecularView.formula.casId} volume={image.MixedEntries[i].entryVolume}\n";
         }
         Debug.Log(s);
     }
