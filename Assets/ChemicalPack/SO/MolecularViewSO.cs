@@ -15,7 +15,7 @@ public class MolecularViewSO : ScriptableObject //агрегатор по сут
 
     public float temperature = 20;
 
-    [Tooltip("плотность любой View может отличаться от оригинального чистого образца")]
+    [Tooltip("g/cm³==g/ml плотность любой View может отличаться от оригинального чистого образца")]
     public float density = 0.997f;
 
     [Tooltip("цвет данного образца")]
@@ -39,7 +39,7 @@ public class MolecularView
     public Registy formula;
     public float temperature = 20;
 
-    [Tooltip("плотность любой View может отличаться от оригинального чистого образца")]
+    [Tooltip("g/cm³==g/ml плотность любой View может отличаться от оригинального чистого образца")]
     public float density;
 
     [Tooltip("цвет данного образца")]
