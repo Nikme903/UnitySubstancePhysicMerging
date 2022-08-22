@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741ad9ee2bc68247ab118bf5ebc4800, type: 3}
+  m_Name: "618.C12H10_\u0431\u0438\u0444\u0435\u043D\u0438\u043B__view"
+  m_EditorClassIdentifier: 
+  formula: {fileID: 11400000, guid: 40bea4230ae93ac43907aaa53972c5f5, type: 2}
+  temperature: 20
+  density: 0.997
+  color: {r: 1, g: 1, b: 1, a: 1}
+  phase: 1

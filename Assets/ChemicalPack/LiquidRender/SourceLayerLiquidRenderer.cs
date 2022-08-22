@@ -15,16 +15,16 @@ public class LayerData
     public LayerData(Entry entry, float containerVolume)
     {
         this.entry = entry;
-        casID = entry.molecule.formula.casId;
+        casID = entry.molecularView.formula.casId;
         //chemicalName = entry.molecule.formula.chemicalVariant.chemicalEnName;
         volume = entry.entryVolume;
-        density = entry.molecule.formula.chemicalVariant.density;
-        color = entry.molecule.molecularColor;
+        density = entry.molecularView.density;
+        color = entry.molecularView.color;
         this.layer = new LiquidVolumeFX.LiquidVolume.LiquidLayer();
-        this.layer.color = entry.molecule.molecularColor;
+        this.layer.color = entry.molecularView.color;
 
-        this.layer.density = entry.molecule.formula.chemicalVariant.density;
-        float mas = entry.molecule.formula.chemicalVariant.density * (entry.entryVolume / containerVolume);
+        this.layer.density = entry.molecularView.density;
+        float mas = entry.molecularView.density * (entry.entryVolume / containerVolume);
         this.layer.amount = mas;
     }
 }
@@ -46,9 +46,9 @@ public class SourceLayerLiquidRenderer : MonoBehaviour
         liquidVolume.liquidLayers = new LiquidVolumeFX.LiquidVolume.LiquidLayer[entries.Count];
         for (int i = 0; i < entries.Count; i++)
         {
-            liquidVolume.liquidLayers[i].color = entries[i].molecule.molecularColor;
-            liquidVolume.liquidLayers[i].density = entries[i].molecule.formula.chemicalVariant.density;
-            float mas = entries[i].molecule.formula.chemicalVariant.density * (entries[i].entryVolume / sourceContainer.containerVolume);
+            liquidVolume.liquidLayers[i].color = entries[i].molecularView.color;
+            liquidVolume.liquidLayers[i].density = entries[i].molecularView.density;
+            float mas = entries[i].molecularView.density * (entries[i].entryVolume / sourceContainer.containerVolume);
             liquidVolume.liquidLayers[i].amount = mas;
         }
         liquidVolume.alpha = 1;

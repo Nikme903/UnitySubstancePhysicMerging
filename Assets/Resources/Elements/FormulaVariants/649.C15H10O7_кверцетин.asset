@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e3949d943351e48977b3748180dff8, type: 3}
+  m_Name: "649.C15H10O7_\u043A\u0432\u0435\u0440\u0446\u0435\u0442\u0438\u043D"
+  m_EditorClassIdentifier: 
+  casId: 117-39-5
+  chemicalVariant:
+    molecularFormula: "C\u2081\u2085H\u2081\u2080O\u2087"
+    chemicalEnName: quercetin
+    chemicalRuName: "\u043A\u0432\u0435\u0440\u0446\u0435\u0442\u0438\u043D\r"
+    density: 0
+    phase: 0

@@ -45,7 +45,7 @@ public class ContainerTransitive : BaseContainer
         if (e != null)
         {
             Debug.Log("Компонент уже существует. Добавление ");
-            PlusVolumeOfTheEntry(e.molecule, volumeCubicCm);
+            PlusVolumeOfTheEntry(e.molecularView, volumeCubicCm);
         }
         else
         {
@@ -100,7 +100,7 @@ public class ContainerTransitive : BaseContainer
         Entry e = null;
         if (entries != null)
         {
-            e = entries.Find((x) => { return x.molecule.formula.casId == molecula.formula.casId; });
+            e = entries.Find((x) => { return x.molecularView.formula.casId == molecula.formula.casId; });
         }
         return e;
     }
@@ -132,7 +132,7 @@ public class ContainerTransitive : BaseContainer
         string s = $"Created next_image:\n";
         for (int i = 0; i < image.mixedEntries.Count; i++)
         {
-            s += $"\tgenerated id={image.mixedEntries[i].molecule.formula.casId} volume={image.mixedEntries[i].entryVolume}\n";
+            s += $"\tgenerated id={image.mixedEntries[i].molecularView.formula.casId} volume={image.mixedEntries[i].entryVolume}\n";
         }
         Debug.Log(s);
     }

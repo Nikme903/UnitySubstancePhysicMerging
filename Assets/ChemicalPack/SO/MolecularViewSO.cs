@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhysicModel2.Math;
+using System;
 using UnityEngine;
 
 //public enum MolecularPhase
@@ -11,6 +12,16 @@ using UnityEngine;
 public class MolecularViewSO : ScriptableObject //агрегатор по сути формула
 {
     public RegistrySO formula;
+
+    public float temperature = 20;
+
+    [Tooltip("плотность любой View может отличаться от оригинального чистого образца")]
+    public float density = 0.997f;
+
+    [Tooltip("цвет данного образца")]
+    public Color color = Color.white;
+
+    public PhaseState phase = PhaseState.Liquid;
     //public float moleculeCount;
 
     //[Header("Массовая концетрация %масс")]
@@ -20,35 +31,37 @@ public class MolecularViewSO : ScriptableObject //агрегатор по сут
     //[Header("Объемная концетрация %об ")]
     //public bool useVolumeFraction;
     //public float volumeFraction;    //отношение объёма компонента к сумме объёмов компонентов до смешивания
-
-    [Header("Цвет данного образца")]
-    public Color color;
 }
 
 [Serializable]
 public class MolecularView
 {
     public Registy formula;
+    public float temperature = 20;
 
-    //public float molecularCount;
-    public Color molecularColor;
+    [Tooltip("плотность любой View может отличаться от оригинального чистого образца")]
+    public float density;
 
-    //public float molecularPhase;
+    [Tooltip("цвет данного образца")]
+    public Color color;
 
-    public MolecularView(Registy formula)
+    public PhaseState phase;
+
+    public MolecularView(Registy formula, MolecularView molecularView)
     {
         this.formula = formula;
-    }
-
-    public MolecularView(Registy formula, MolecularView molecula)
-    {
-        this.formula = formula;
-        this.molecularColor = molecula.molecularColor;
+        this.color = molecularView.color;
+        this.density = molecularView.density;
+        this.phase = molecularView.phase;
+        this.temperature = molecularView.temperature;
     }
 
     public MolecularView(MolecularViewSO so)
     {
         formula = new Registy(so);
-        this.molecularColor = so.color;
+        this.color = so.color;
+        this.density = so.density;
+        this.phase = so.phase;
+        this.temperature = so.temperature;
     }
 }

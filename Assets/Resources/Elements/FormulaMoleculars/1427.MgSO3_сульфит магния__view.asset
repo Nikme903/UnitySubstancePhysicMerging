@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741ad9ee2bc68247ab118bf5ebc4800, type: 3}
+  m_Name: "1427.MgSO3_\u0441\u0443\u043B\u044C\u0444\u0438\u0442 \u043C\u0430\u0433\u043D\u0438\u044F__view"
+  m_EditorClassIdentifier: 
+  formula: {fileID: 11400000, guid: 9913b77c07b957e4094c1e5a3e963eac, type: 2}
+  temperature: 20
+  density: 0.997
+  color: {r: 1, g: 1, b: 1, a: 1}
+  phase: 1

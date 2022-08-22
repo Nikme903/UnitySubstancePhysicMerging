@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8741ad9ee2bc68247ab118bf5ebc4800, type: 3}
+  m_Name: "Ar_\u0430\u0440\u0433\u043E\u043D_gas_view"
+  m_EditorClassIdentifier: 
+  formula: {fileID: 11400000, guid: 8e30a09c9979a8e458931bc783de97f3, type: 2}
+  temperature: 20
+  density: 0.00178
+  color: {r: 1, g: 1, b: 1, a: 1}
+  phase: 3

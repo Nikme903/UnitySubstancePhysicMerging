@@ -1,7 +1,9 @@
 ﻿using PhysicModel2.Math;
+using System;
 
 namespace PhysicModel.PhysicalSubstance
 {
+ 
     public class SubstanceAgregateParameters
     {
         public float temperature = 20;

@@ -61,7 +61,7 @@ public static class ReactionMediator
         int rightId = 0;
         for (int i = 0; i < selectEntries.Length; i++)
         {
-            string id1 = selectEntries[i].molecule.formula.casId;
+            string id1 = selectEntries[i].molecularView.formula.casId;
             for (int j = 0; j < inputEntries.Length; j++)
             {
                 string id2 = inputEntries[j].formula.casId;
@@ -189,7 +189,7 @@ public static class ReactionMediator
         for (int i = 0; i < containerTransitive.entries.Count; i++)
         {
             float part = containerTransitive.entries[i].entryVolume / summirizedVolume;
-            verified.Add(containerTransitive.entries[i].molecule.formula.casId, part);
+            verified.Add(containerTransitive.entries[i].molecularView.formula.casId, part);
         }
 
         for (int i = 0; i < inputMixSet.volumePortions.Length; i++)

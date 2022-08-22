@@ -4,36 +4,25 @@ using System.Collections.Generic;
 [Serializable]
 public class Entry
 {
-    public MolecularView molecule;
+    public MolecularView molecularView;
     public float entryVolume;
-
-    //public Entry(float volume)
-    //{
-    //    this.molecule = null;
-    //    this.entryVolume = volume;
-    //}
-
+ 
     public Entry(MolecularViewSO so, float entryVolume)
     {
-        this.molecule = new MolecularView(so);
+        this.molecularView = new MolecularView(so);
         this.entryVolume = entryVolume;
     }
 
-    public Entry(MolecularView molecule, float entryVolume)
+    public Entry(MolecularView moleculeView, float entryVolume)
     {
-        this.molecule = molecule;
-        this.molecule.molecularColor = molecule.molecularColor;
+        this.molecularView = moleculeView;
+        this.molecularView.color = moleculeView.color;
+        this.molecularView.density = moleculeView.density;
+        this.molecularView.phase = moleculeView.phase;
+        this.molecularView.temperature = moleculeView.temperature;
         this.entryVolume = entryVolume;
     }
-
-    //public static Entry Copy(MolecularWrapper molecule, float entryVolume)
-    //{
-    //    //CASFormula cas = new CASFormula(molecule.formula.casId, molecule.formula.chemicalVariant);
-    //    //MolecularWrapper mw = new MolecularWrapper(cas, molecule);
-    //    Entry r = new Entry(molecule, entryVolume);
-    //    return r;
-    //}
-
+ 
     public static List<Entry> Copy(List<Entry> entries)
     {
         List<Entry> tempCopy = new List<Entry>();
@@ -51,8 +40,8 @@ public class Entry
         for (int i = 0; i < entries.Count; i++)
         {
             Entry e = entries[i];
-            Registy cas = new Registy(e.molecule.formula.casId, e.molecule.formula.chemicalVariant);
-            MolecularView mw = new MolecularView(cas, e.molecule);
+            Registy cas = new Registy(e.molecularView.formula.casId, e.molecularView.formula.chemicalVariant);
+            MolecularView mw = new MolecularView(cas, e.molecularView);
             Entry r = new Entry(mw, 0);
             tempCopy.Add(r);
         }
@@ -62,13 +51,13 @@ public class Entry
 
     public float GetEntryMass()
     {
-        return ToMass(molecule.formula.chemicalVariant.density, entryVolume);
+        return ToMass(molecularView.density, entryVolume);
     }
 
     private static Entry Copy(Entry e)
     {
-        Registy cas = new Registy(e.molecule.formula.casId, e.molecule.formula.chemicalVariant);
-        MolecularView mw = new MolecularView(cas, e.molecule);
+        Registy cas = new Registy(e.molecularView.formula.casId, e.molecularView.formula.chemicalVariant);
+        MolecularView mw = new MolecularView(cas, e.molecularView);
         Entry r = new Entry(mw, e.entryVolume);
         return r;
     }

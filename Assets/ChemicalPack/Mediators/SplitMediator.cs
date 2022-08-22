@@ -12,21 +12,22 @@ public static class SplitMediator
 
     public static void SourceOutOperation(ContainerTransitive to, ContainerSource from, float demandedValue) //demanded -volume/mass
     {
-        ChemicalVariant addedChem = from.entries[0].molecule.formula.chemicalVariant;
-        if (addedChem.phase == PhaseState.Undefined)
+        MolecularView view = from.entries[0].molecularView;
+        //ChemicalVariant addedChem = from.entries[0].molecularView.formula.chemicalVariant;
+        if (view.phase == PhaseState.Undefined)
         {
             Debug.LogWarning($"Фаза делимого вещества 'ChemicalVariant' не обозначена");
         }
-        if (addedChem.density == 0)
+        if (view.density == 0)
         {
             Debug.LogWarning($"Плотность делимого вещества 'ChemicalVariant' не задана");
         }
 
         float volumeCubicCm = demandedValue;
-        if (addedChem.phase == PhaseState.Solid)
+        if (view.phase == PhaseState.Solid)
         {
             float massGram = demandedValue;
-            volumeCubicCm = ToVolume(massGram, addedChem.density);
+            volumeCubicCm = ToVolume(massGram, view.density);
         }
         Checking(to, from, volumeCubicCm);
     }
@@ -78,7 +79,7 @@ public static class SplitMediator
             {
                 float part = copyFrom[i].entryVolume * percent;
                 copyFrom[i].entryVolume -= part;
-                allEntries.Add(new Entry(copyFrom[i].molecule, part));
+                allEntries.Add(new Entry(copyFrom[i].molecularView, part));
             }
             //фильтрование групп в каждой их которых объекты одного ID. Потом объединяется вес каждой подгруппы Entry в mergedGroup
             List<List<Entry>> groups = new List<List<Entry>>();
@@ -90,7 +91,7 @@ public static class SplitMediator
                 allEntries.Remove(entry);
                 for (int i = 0; i < allEntries.Count; i++)
                 {
-                    if (allEntries[i].molecule.formula.casId == entry.molecule.formula.casId)
+                    if (allEntries[i].molecularView.formula.casId == entry.molecularView.formula.casId)
                     {
                         group.Add(allEntries[i]);
                         allEntries.Remove(allEntries[i]);
@@ -104,7 +105,7 @@ public static class SplitMediator
             for (int i = 0; i < groups.Count; i++)
             {
                 float volume = BaseContainer.SummVolume(groups[i]);
-                mergedEntries.Add(new Entry(groups[i][0].molecule, volume));
+                mergedEntries.Add(new Entry(groups[i][0].molecularView, volume));
             }
 
             AssigningGroups(transitTo, transitFrom, mergedEntries, copyFrom, percent);
@@ -116,17 +117,17 @@ public static class SplitMediator
     {
         for (int i = 0; i < container.entries.Count; i++)
         {
-            string formula = container.entries[i].molecule.formula.chemicalVariant.molecularFormula;
-            MolecularView mw = container.entries[i].molecule;
-            if (mw.molecularColor.a == 0)
+            MolecularView view = container.entries[i].molecularView;
+            string formula = view.formula.chemicalVariant.molecularFormula;
+            if (view.color.a == 0)
             {
                 Debug.LogWarning($"[ml]Цвет вещества {formula} не задан");
             }
-            if (mw.formula.chemicalVariant.phase == PhaseState.Undefined)
+            if (view.formula.chemicalVariant.phase == PhaseState.Undefined)
             {
                 Debug.LogWarning($"[ch]Фаза вещества {formula} не задана");
             }
-            if (mw.formula.chemicalVariant.density == 0)
+            if (view.density == 0)
             {
                 Debug.LogWarning($"[ch]Плотность вещества {formula} не задана");
             }
@@ -173,7 +174,7 @@ public static class SplitMediator
                 from.MinusVolumeOfTheEntry(from.entries[0], volumeCubicCm);
             }
 
-            to.AddEntry(from.entries[0].molecule, volumeCubicCm);
+            to.AddEntry(from.entries[0].molecularView, volumeCubicCm);
             to.ResetMixStatus();
             FormatSourceOut(to);
             UpdateVolumes(to, from);
@@ -230,7 +231,7 @@ public static class SplitMediator
 
         for (int i = 0; i < container.entries.Count; i++)
         {
-            Debug.Log($"\tCleared entry id={container.entries[i].molecule.formula.casId}");
+            Debug.Log($"\tCleared entry id={container.entries[i].molecularView.formula.casId}");
         }
         if (container.lastMixedEntries != null)
         {
@@ -238,7 +239,7 @@ public static class SplitMediator
             {
                 for (int i = 0; i < container.lastMixedEntries.Count; i++)
                 {
-                    Debug.Log($"\tCleared entry id={container.lastMixedEntries[i].molecule.formula.casId}");
+                    Debug.Log($"\tCleared entry id={container.lastMixedEntries[i].molecularView.formula.casId}");
                 }
             }
         }
@@ -291,13 +292,13 @@ public static class SplitMediator
             for (int i = 0; i < to.lastMixedEntries.Count; i++)
             {
                 Entry e = to.lastMixedEntries[i];
-                localString += $"\tConsist [{e.molecule.formula.casId}] vol={e.entryVolume} mas={e.GetEntryMass()}\n";
+                localString += $"\tConsist [{e.molecularView.formula.casId}] vol={e.entryVolume} mas={e.GetEntryMass()}\n";
             }
         }
         for (int i = 0; i < to.entries.Count; i++)
         {
             Entry e = to.entries[i];
-            localString += $"\tConsist [{e.molecule.formula.casId}] vol={e.entryVolume} mas={e.GetEntryMass()}\n";
+            localString += $"\tConsist [{e.molecularView.formula.casId}] vol={e.entryVolume} mas={e.GetEntryMass()}\n";
         }
 
         return localString;

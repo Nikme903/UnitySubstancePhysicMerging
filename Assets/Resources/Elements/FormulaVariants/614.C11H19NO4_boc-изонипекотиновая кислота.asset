@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e3949d943351e48977b3748180dff8, type: 3}
+  m_Name: "614.C11H19NO4_boc-\u0438\u0437\u043E\u043D\u0438\u043F\u0435\u043A\u043E\u0442\u0438\u043D\u043E\u0432\u0430\u044F
+    \u043A\u0438\u0441\u043B\u043E\u0442\u0430"
+  m_EditorClassIdentifier: 
+  casId: 84358-13-4
+  chemicalVariant:
+    molecularFormula: "C\u2081\u2081H\u2081\u2089NO\u2084"
+    chemicalEnName: boc-isonipecotic acid
+    chemicalRuName: "boc-\u0438\u0437\u043E\u043D\u0438\u043F\u0435\u043A\u043E\u0442\u0438\u043D\u043E\u0432\u0430\u044F
+      \u043A\u0438\u0441\u043B\u043E\u0442\u0430\r"
+    density: 0
+    phase: 0

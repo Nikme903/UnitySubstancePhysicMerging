@@ -50,7 +50,7 @@ public class CSVReader
 
         for (int i = 0; i < values.Length; i++)
         {
-            string[] parsedLine = values[i].Split(';');
+            string[] parsedLine = values[i].Split(',');
 
             //if (parsedLine.Length > 1)
             {
