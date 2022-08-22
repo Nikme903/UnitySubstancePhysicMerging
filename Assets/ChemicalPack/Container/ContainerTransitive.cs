@@ -75,7 +75,7 @@ public class ContainerTransitive : BaseContainer
         isMixedStatus = false;
     }
 
-    public float GetFilledVolumeWithLast()
+    float GetFilledVolumeWithLast()
     {
         float sum = 0;
         if (entries != null)

@@ -17,9 +17,11 @@ MonoBehaviour:
     moleculars:
     - {fileID: 11400000, guid: 901222e4204f7a541a05722551cee26b, type: 2}
     - {fileID: 11400000, guid: 369738812e67e644590204e6250bc008, type: 2}
+    - {fileID: 11400000, guid: 83d989ba02405c543b2e55a14dfc1823, type: 2}
     volumePortions:
-    - 0.5
-    - 0.5
+    - 0.33
+    - 0.33
+    - 0.34
     nameMixSet: 
   inputMistake: 0.05
   outputSet:
@@ -31,7 +33,7 @@ MonoBehaviour:
     - 0.1
     nameMixSet: 
   outSubstanceViews:
-  - color: {r: 1, g: 1, b: 1, a: 1}
-    effect: 0
+  - substanceColor: {r: 0, g: 0, b: 0, a: 0}
+    substanceEffect: 0
   reactionModifier: 0
   containerEffect: 0

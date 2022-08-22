@@ -64,7 +64,7 @@ public class BaseSubstanceGenerator : MonoBehaviour
         EditorUtility.FocusProjectWindow();
     }
 
-    private PhysicModel2.Math.PhaseState ParsedPhase(DataContainer dataContainer)
+    private PhysicModel2.Math.PhaseState ParsedPhase(CSVReader.DataContainer dataContainer)
     {
         string phase = dataContainer.phase.Trim();
         if (string.Equals(phase, "liq"))

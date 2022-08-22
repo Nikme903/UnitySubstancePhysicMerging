@@ -15,5 +15,5 @@ MonoBehaviour:
   formula: {fileID: 11400000, guid: c23e7c5d0bc63aa4d84d9a4ed58ff9bc, type: 2}
   temperature: 20
   density: 3.59
-  color: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+  color: {r: 1, g: 0.0141509175, b: 0.11890236, a: 1}
   phase: 2

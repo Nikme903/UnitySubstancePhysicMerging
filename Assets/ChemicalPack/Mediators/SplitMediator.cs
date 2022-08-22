@@ -13,7 +13,6 @@ public static class SplitMediator
     public static void SourceOutOperation(ContainerTransitive to, ContainerSource from, float demandedValue) //demanded -volume/mass
     {
         MolecularView view = from.entries[0].molecularView;
-        //ChemicalVariant addedChem = from.entries[0].molecularView.formula.chemicalVariant;
         if (view.phase == PhaseState.Undefined)
         {
             Debug.LogWarning($"Фаза делимого вещества 'ChemicalVariant' не обозначена");

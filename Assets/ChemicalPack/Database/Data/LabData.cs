@@ -6,7 +6,7 @@ namespace LabFramework
     [CreateAssetMenu(menuName = "LabFramework/Data/LabData")]
     public class LabData : ScriptableObject
     {
-        /// <summary>
+  /*      /// <summary>
         /// Реактивы
         /// </summary>
         public List<MolecularViewSO> reagents;
@@ -14,6 +14,6 @@ namespace LabFramework
         /// <summary>
         /// Реакции
         /// </summary>
-        public List<ChemicalReactionSO> reactions;
+        public List<ChemicalReactionSO> reactions;*/
     }
 }

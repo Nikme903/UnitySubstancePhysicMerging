@@ -5,6 +5,17 @@ using System.IO;
 
 public class CSVReader
 {
+    public class DataContainer
+{
+    public string casId;
+    public string rawFormula;
+    public string clearFormula;
+    public string engName;
+    public string rusName;
+
+    public float density;
+    public string phase;
+}
     public List<DataContainer> dataSimple;
     public List<DataContainer> dataFormula;
 

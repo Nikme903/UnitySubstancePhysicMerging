@@ -6,21 +6,23 @@ public class Entry
 {
     public MolecularView molecularView;
     public float entryVolume;
- 
+    public float entryMass;
     public Entry(MolecularViewSO so, float entryVolume)
     {
         this.molecularView = new MolecularView(so);
         this.entryVolume = entryVolume;
+        this.entryMass = ToMass(molecularView.density, entryVolume);
     }
 
-    public Entry(MolecularView moleculeView, float entryVolume)
+    public Entry(MolecularView molecularView, float entryVolume)
     {
-        this.molecularView = moleculeView;
-        this.molecularView.color = moleculeView.color;
-        this.molecularView.density = moleculeView.density;
-        this.molecularView.phase = moleculeView.phase;
-        this.molecularView.temperature = moleculeView.temperature;
+        this.molecularView = molecularView;
+        this.molecularView.color = molecularView.color;
+        this.molecularView.density = molecularView.density;
+        this.molecularView.phase = molecularView.phase;
+        this.molecularView.temperature = molecularView.temperature;
         this.entryVolume = entryVolume;
+        this.entryMass = ToMass(molecularView.density, entryVolume);
     }
  
     public static List<Entry> Copy(List<Entry> entries)

@@ -19,7 +19,7 @@ public enum ContainerEffects
     Sediment,
     VisibleGas
 }
-public enum ComponentVisualEffect
+public enum SubstanceVisualEffect
 {
     Layer,
     StaticSediment,
@@ -28,10 +28,10 @@ public enum ComponentVisualEffect
 }
 
 [Serializable]
-public class SubstanceViewSetting
+public class OutputSubstanceViewSetting
 {
-    public Color color;
-    public ComponentVisualEffect effect;
+    public Color substanceColor;
+    public SubstanceVisualEffect substanceEffect;
 }
 
 [Serializable]
@@ -73,7 +73,7 @@ public class ChemicalReactionSO: ScriptableObject
 
     [Tooltip("Получаемые вещества")]
     public MixSet outputSet;
-    public SubstanceViewSetting[] outSubstanceViews;
+    public OutputSubstanceViewSetting[] outSubstanceViews;
  
     public ReactionModifier reactionModifier;
     public ContainerEffects containerEffect;

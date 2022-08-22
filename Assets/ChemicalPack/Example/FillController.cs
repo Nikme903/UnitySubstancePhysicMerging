@@ -4,7 +4,7 @@ public class FillController : MonoBehaviour
 {
     public ContainerSource sWater;
     public ContainerSource sAcid;
-    public ContainerSource sCa;
+    public ContainerSource sAg;
     public ContainerSource sBa;
     public ContainerTransitive transit1;
     public ContainerTransitive transit2;
@@ -16,14 +16,6 @@ public class FillController : MonoBehaviour
 
     private void Initialize()
     {
-    }
-
-    public void RunSourceOut()
-    {
-        SplitMediator.SourceOutOperation(transit1, sWater, 25);
-        SplitMediator.SourceOutOperation(transit1, sCa, 25);
-        SplitMediator.FilledInfo(transit1);
-        UpdateTransitRender(transit1);
     }
 
     public void RunTtoT()
@@ -82,6 +74,13 @@ public class FillController : MonoBehaviour
     public void Add2()
     {
         SplitMediator.SourceOutOperation(transit1, sBa, 10);
+        SplitMediator.FilledInfo(transit1);
+        UpdateTransitRender(transit1);
+    }
+
+    public void Add3()
+    {
+        SplitMediator.SourceOutOperation(transit1, sAg, 10);
         SplitMediator.FilledInfo(transit1);
         UpdateTransitRender(transit1);
     }
